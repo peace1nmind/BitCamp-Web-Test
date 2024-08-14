@@ -92,7 +92,11 @@ public class AddUser extends HttpServlet {
 			}
 		}
 		
+		System.out.println("valueList = "+valueList+"\n");
+		
 		userVO = new UserVO(valueList);
+		
+		System.out.println("userVO Info = "+userVO.getInfo()+"\n");
 		
 		// 방법1 userVO를 인자로 addUser
 //		UserDao userDao = new UserDao();

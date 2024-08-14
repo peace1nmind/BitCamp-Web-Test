@@ -131,7 +131,7 @@ public class UserDao {
 		for (int i = 0; i < paramList.size(); i++) {
 			
 			// 파라미터 이름, 값, NullString 여부 확인
-			System.out.println("paramName= "+paramList.get(i)+", paramValue= "+req.getParameter(paramList.get(i))+", isNullString= "+req.getParameter(paramList.get(i)).equals(""));
+			System.out.println(String.format("paramName= %-15s\tparamValue= %-15s\t inNull= %b", paramList.get(i), req.getParameter(paramList.get(i)), req.getParameter(paramList.get(i)).equals("")));
 			
 			sqlf += paramList.get(i) + ((i<paramList.size()-1) ? ", " : "");
 			
@@ -146,7 +146,7 @@ public class UserDao {
 		// 완성된 SQL문
 		String sql = sqlf + ") " +sqlb + ")";
 		
-		System.out.println("SQL : "+sql);
+		System.out.println("\nSQL : "+sql+"\n");
 		
 		// 이하 기존과 동일하게 SQL문 실행
 		try {
