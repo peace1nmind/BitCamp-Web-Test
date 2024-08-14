@@ -79,6 +79,8 @@ public class UserDao {
 	}// method end
 	
 	
+	// Html의 parameter 이름과 DB의 column 이름이 동일해야함
+	// service 또는 doPost에서 reqest를 Dao에 넘기기만 하면 제작 가능 (생성자로 또는 메서드 인수로)
 	/* 
 	  테이블 생성 SQL문
 	  ** HTML의 input의 name도 동일해야한다 **
@@ -101,8 +103,6 @@ public class UserDao {
 		COMMIT;
 	
 	*/
-	// Html의 parameter 이름과 DB의 column 이름이 동일해야함
-	// service 또는 doPost에서 reqest를 Dao에 넘기기만 하면 제작 가능 (생성자로 또는 메서드 인수로)
 	public void addUser(HttpServletRequest req) {
 		
 		Connection con = null;
@@ -117,29 +117,45 @@ public class UserDao {
 		Enumeration<String> params = req.getParameterNames();
 		List<String> paramList = new ArrayList<String>();
 		
-		while (params.hasMoreElements()) {
-			String param =  params.nextElement();
-			paramList.add(param);
-		}
+//		while (params.hasMoreElements()) {
+//			String param =  params.nextElement();
+//			paramList.add(param);
+//		}
 		
 		// parameter 이름들이 들어간 ArrayList를 for문 돌리며 SQL문 완성
-		for (int i = 0; i < paramList.size(); i++) {
+//		for (int i = 0; i < paramList.size(); i++) {
+//			
+//			// 파라미터 이름, 값, NullString 여부 확인
+//			System.out.println(String.format("paramName= %-15s\tparamValue= %-15s\t inNull= %b", paramList.get(i), req.getParameter(paramList.get(i)), req.getParameter(paramList.get(i)).equals("")));
+//			
+//			sqlf += paramList.get(i) + ((i<paramList.size()-1) ? ", " : "");
+//			
+//			if (!req.getParameter(paramList.get(i)).equals("")) {
+//				sqlb += "\'" + req.getParameter(paramList.get(i)) + "\'" + ((i<paramList.size()-1) ? ", " : "");
+//			} else {
+//				sqlb += "NULL" + ((i<paramList.size()-1) ? ", " : "");
+//			}
+//			
+//		}
+		
+		while (params.hasMoreElements()) {
+			String param =  params.nextElement();
 			
-			// 파라미터 이름, 값, NullString 여부 확인
-			System.out.println(String.format("paramName= %-15s\tparamValue= %-15s\t inNull= %b", paramList.get(i), req.getParameter(paramList.get(i)), req.getParameter(paramList.get(i)).equals("")));
+			System.out.println(String.format("paramName= %-15s\tparamValue= %-15s\t inNull= %b", param, req.getParameter(param), req.getParameter(param).equals("")));
 			
-			sqlf += paramList.get(i) + ((i<paramList.size()-1) ? ", " : "");
+			sqlf += param+", ";
 			
-			if (!req.getParameter(paramList.get(i)).equals("")) {
-				sqlb += "\'" + req.getParameter(paramList.get(i)) + "\'" + ((i<paramList.size()-1) ? ", " : "");
-			} else {
-				sqlb += "NULL" + ((i<paramList.size()-1) ? ", " : "");
+			if (!req.getParameter(param).equals("")) {
+				sqlb += "\'" + req.getParameter(param) + "\'" + ", ";
+			}else {
+				sqlb += "NULL, ";
 			}
-			
 		}
 		
+		
 		// 완성된 SQL문
-		String sql = sqlf + ") " +sqlb + ")";
+//		String sql = sqlf + ") " +sqlb + ")";
+		String sql = sqlf.substring(0, sqlf.length()-2) + ") " +sqlb.substring(0, sqlb.length()-2) + ")";
 		
 		System.out.println("\nSQL : "+sql+"\n");
 		
