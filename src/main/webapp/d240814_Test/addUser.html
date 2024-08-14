@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<HTML lang="ko">
+    
+    <HEAD>
+        <meta charset="EUC-KR">
+        <TITLE> addUser.html </TITLE>
+    </HEAD>
+    
+    <BODY onload="document.addUser.name.focus()">
+        
+        <strong>- 개인정보</strong>
+
+        <br><br>
+
+        <form name="addUser" action="../AddUser" method="post">
+
+            <table border="2" cellspace="0" cellpadding="3  ">
+                <tr>
+                    <td>
+                        * 이름(한글실명)
+                    </td>
+                    <td colspan="5">
+                        <input type="text" name="name" id="name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 성별
+                    </td>
+                    <td colspan="5">
+                        <input type="radio" name="gender" value="남" checked>남 &nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="여">여
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 생년월일
+                    </td>
+                    <td colspan="5">
+                        <input type="text" name="birth" size="2">년
+                        <select name="birth">
+                            <option value="">선택</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select> 월
+
+                        <select name="birth">
+                            <option value="">선택</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select> 일
+
+                        &nbsp;&nbsp;&nbsp;
+
+                        <input type="radio" name="calendarType" value="양력" checked>양력&nbsp;
+                        <input type="radio" name="calendarType" value="음력">음력&nbsp;
+                        (<input type="radio" name="calendarType" value="윤달">윤달)
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 최종학력
+                    </td>
+                    <td colspan="5">
+                        <select name="edu">
+                            <option value="">선택하세요.</option>
+                            <option value="초등학교(국민학교)">초등학교(국민학교)</option>
+                            <option value="중학교">중학교</option>
+                            <option value="고등학교">고등학교</option>
+                            <option value="대학교">대학교</option>
+                            <option value="대학원(석사)">대학원(석사)</option>
+                            <option value="대학원(박사)">대학원(박사)</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 직업
+                    </td>
+                    <td colspan="2">
+                        <select name="job">
+                            <option value="">선택하세요.</option>
+                            <option value="무직">무직</option>
+                            <option value="학생">학생</option>
+                            <option value="직장인">직장인</option>
+                        </select>
+                    </td>
+                    <td>
+                        소속
+                    </td>
+                    <td colspan="3">
+                        <input type="text" name="dept">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 결혼여부
+                    </td>
+                    <td colspan="2">
+                        <input type="radio" name="marriage" value="미혼" checked>미혼
+                        <input type="radio" name="marriage" value="기혼">기혼
+                    </td>
+                    <td>
+                        자녀수
+                    </td>
+                    <td colspan="3">
+                        <select name="child">
+                            <option value="">자녀수</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>명
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">
+                        * 연락처
+                    </td>
+                    <td>
+                        · 전화번호
+                    </td>
+                    <td colspan="5">
+                        <input type="tel" name="tel" size="1"> - 
+                        <input type="tel" name="tel" size="1"> - 
+                        <input type="tel" name="tel" size="1">
+
+                        <input type="radio" name="telPlace" value="집" checked>집
+                        <input type="radio" name="telPlace" value="직장">직장
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        · 휴대폰
+                    </td>
+                    <td colspan="2">
+                        <input type="tel" name="phone" placeholder="010" pattern="[0-9]{3}" size="1"> - 
+                        <input type="tel" name="phone" pattern="[0-9]{4}" size="1"> - 
+                        <input type="tel" name="phone" pattern="[0-9]{4}" size="1">
+                    </td>
+                    <td>
+                        이동통신사
+                    </td>
+                    <td colspan="2">
+                        <input type="radio" name="telCompany" value="SKT" checked>SKT
+                        <input type="radio" name="telCompany" value="KTF">KTF
+                        <input type="radio" name="telCompany" value="LGT">LGT
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div>전화번호나 휴대폰번호 2가지 중 하나는 반드시 입력하셔야 합니다.</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        * 거주지 주소
+                    </td>
+                    <td colspan="5">
+                        <input type="button" value="국내">
+                        <input type="button" value="국외">
+
+                        <input type="text" name="addr" size="50">
+                    </td>
+                </tr>
+
+                <tr align="right">
+                    <td colspan="6">
+                        <input type="submit" value="제출">
+                        <input type="reset" value="초기화" onclick="document.addUser.name.focus()">
+                    </td>
+                </tr>
+     			
+            </table>
+
+            <br>
+
+        </form>
+        
+    </BODY>
+    
+</HTML>
