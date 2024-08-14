@@ -99,13 +99,12 @@ public class AddUser extends HttpServlet {
 		System.out.println("userVO Info = "+userVO.getInfo()+"\n");
 		
 		// 방법1 userVO를 인자로 addUser
-//		UserDao userDao = new UserDao();
+		UserDao userDao = new UserDao();
 //		userDao.addUser(userVO);
 		
 		// 방법2 
-		// service의 매개변수로 받은 request와 response를 그대로 전달하여 생성자 호출 (request만 있어도 DB에 넣을 수 있음)
-		UserDao userDao = new UserDao(req, res);
-		userDao.addUser();
+		// service의 매개변수로 받은 request를 그대로 전달하여 메서드수행
+		userDao.addUser(req);
 		
 		out.println("<html>");
 		out.println("<head>");

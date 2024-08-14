@@ -17,17 +17,12 @@ public class UserDao {
 
 	// Field
 	boolean dbResult;
-	HttpServletRequest req;
-	HttpServletResponse res;
+	
 	
 	// Constructor
 	public UserDao() {
 	}
 	
-	public UserDao(HttpServletRequest req, HttpServletResponse res) {
-		this.req = req;
-		this.res = res;
-	}
 
 	// Method
 	public void addUser(UserVO userVO) {
@@ -108,7 +103,7 @@ public class UserDao {
 	*/
 	// Html의 parameter 이름과 DB의 column 이름이 동일해야함
 	// service 또는 doPost에서 reqest를 Dao에 넘기기만 하면 제작 가능 (생성자로 또는 메서드 인수로)
-	public void addUser() {
+	public void addUser(HttpServletRequest req) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
